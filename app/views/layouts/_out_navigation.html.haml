@@ -1,0 +1,15 @@
+%nav.navbar.navbar-expand-sm.navbar-dark
+  = link_to root_path, class: "navbar-brand logo d-none d-lg-block d-xl-block d-md-block d-sm-block" do
+    %p wow
+      
+  %button.navbar-toggler{ "data-toggle" => "collapse", "data-target" => "#navbarSupportedContent",
+        "aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation" }
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+    = active_link_to "Home", root_path, class: "nav-link in-navigation", active: :exact
+    &nbsp;
+    = active_link_to "Sign up", new_user_registration_path, class: "nav-link"
+    &nbsp;
+    = active_link_to "Sign in", new_user_session_path, class: "nav-link in-navigation", active: :exact

@@ -1,0 +1,64 @@
+@import "bootstrap";
+@import "datetimepicker";
+@import "utilities";
+
+
+body {
+  min-height: 100vh; 
+  font-family: 'Nunito', sans-serif;
+  background-color: aliceblue;
+  letter-spacing: 0.8px;
+}
+
+.navbar-brand{
+  span{
+    color: #fff;
+  }
+}
+
+.flex-grow {
+  flex: 1;
+  min-height: 85vh;
+}
+
+.container-fluid{
+  padding: 3% 5%;
+}
+
+.navbar-collapse{
+  a.active {
+    font-weight: 600;
+    color: black !important;
+    background-color: #fff !important;
+  }
+}
+
+.nav-link {  
+  -webkit-font-smoothing: antialiased;
+  color: white;
+  border-radius: 25px;
+}
+
+.in-navigation:hover{
+  color: black !important;
+  background-color: #fff !important;
+}
+
+.out-devise-button{
+  margin: 5px;
+}
+
+.round-btn{
+  border-radius: 20px !important; 
+}
+
+.content-background{
+  background-color: #fff !important;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+  padding: .25rem .4rem;
+  font-size: .875rem;
+  line-height: .5;
+  border-radius: .2rem;
+}

@@ -1,0 +1,70 @@
+#error_explanation{
+  color: red;
+}
+
+.field_with_errors{
+  color: red;
+  input{
+    border-color: red;
+  }
+}
+
+a:hover{
+  text-decoration: none !important;
+}
+
+.navbar-dark {
+  background-color: #4656cd !important;
+}
+
+.btn-default-light{
+  color: green !important;
+}
+
+/* used to pagination */
+
+.digg_pagination {
+  background: white;
+  cursor: default;
+}
+.digg_pagination a, .digg_pagination span, .digg_pagination em {
+  padding: 0.2em 0.5em;
+  margin-right: 1px; 
+}
+.digg_pagination .disabled {
+  color: #999999;
+  border: 1px solid #dddddd; 
+}
+.digg_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background: #2e6ab1;
+  color: white;
+  border: 1px solid #2e6ab1; 
+}
+.digg_pagination a {
+  text-decoration: none;
+  color: #105cb6;
+  border: 1px solid #9aafe5; 
+}
+.digg_pagination a:hover, .digg_pagination a:focus {
+  color: #000033;
+  border-color: #000033; 
+}
+
+.error-page{
+  padding: 10px;
+  width: 400px;
+  background: white;
+  border-radius: 15px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+
+  .rotate-90{
+    transform: rotate(90deg);
+  }
+}

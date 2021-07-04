@@ -1,0 +1,20 @@
+.container-fluid
+  %br
+  .row
+    .col-sm-12.col-md-12.col-lg-4
+    .col-sm-12.col-md-12.col-lg-4.bg-white
+      .row
+        .col-sm-12
+          %br
+          %h3.text-center.text-primary Change your password
+          %br
+          = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+            = render "devise/shared/error_messages", resource: resource
+            .form-group
+              / = f.label :email
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email"
+            .form-group.actions
+              %br
+              = f.submit "Send reset password instructions", class: "btn btn-primary btn-block round-btn form-control"
+          = render "devise/shared/links"
+    .col-sm-12.col-md-12.col-lg-4

@@ -1,0 +1,27 @@
+.container-fluid
+  %br
+  .row
+    .col-sm-12.col-md-12.col-lg-4
+    .col-sm-12.col-md-12.col-lg-4.bg-white
+      .row
+        .col-sm-12
+          %br
+          %h3.text-center.text-primary User Log in
+          %br
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            = render "devise/shared/error_messages", resource: resource
+            .form-group
+              / = f.label :email
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email"
+            .form-group
+              / = f.label :password
+              = f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password"
+            - if devise_mapping.rememberable?
+              .field
+                = f.check_box :remember_me
+                = f.label :remember_me
+            .form-group.actions
+              %br
+              = f.submit "Log in", class: "btn btn-primary btn-block round-btn form-control"
+          = render "devise/shared/links"
+    .col-sm-12.col-md-12.col-lg-4

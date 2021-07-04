@@ -1,0 +1,41 @@
+.container-fluid
+  .row
+    .col-sm-12.col-md-12.col-lg-3
+    .col-sm-12.col-md-12.col-lg-6.bg-white
+      %br
+      %h3
+        Update Your Profile
+      %br
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .row
+          .col-sm-12
+            .form-group
+              / = f.label :email
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Your email"
+            - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+              %div
+                Currently waiting confirmation for: #{resource.unconfirmed_email}
+        %hr
+        %small
+          Leave blank if you don't want to change password
+        .row
+          .col-sm-6
+            .form-group
+              = f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "password"
+              - if @minimum_password_length
+                %small
+                  = @minimum_password_length
+                  characters minimum
+          .col-sm-6
+            .form-group
+              = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "password confirmation"
+        %hr
+        %small 
+          we need your current password to confirm your changes
+        .row
+          .col-sm-6
+            .form-group
+              = f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "current password"
+        .form-group.actions
+          = f.submit "Update", class: "btn btn-primary btn-block form-control"

@@ -1,0 +1,25 @@
+.container-fluid
+  .row
+    .col-12
+      %h4.no-margin.text-center Task Details
+  %br
+  .row
+    .col-12.content-background
+      %br
+      .row
+        .col-8
+          %h4
+            = @task.title
+        .col-4
+          = render 'actions', task: @task
+      .row
+        .col-12
+          %p
+            %span.badge.badge-pill.badge-warning
+              = @task.human_readable_deadline  
+            %span.badge.badge-pill.badge-info
+              = @task.status.titleize 
+        .col-12
+          %p
+            = @task.description
+          %br

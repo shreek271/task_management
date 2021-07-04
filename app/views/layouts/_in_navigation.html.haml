@@ -1,0 +1,10 @@
+%nav.navbar.navbar-expand-sm.bg-primary.navbar-dark
+  = link_to authenticated_user_root_path, class: "navbar-brand logo d-none d-lg-block d-xl-block d-md-block d-sm-block" do
+    %p wow
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+    = active_link_to "Dashboard", authenticated_user_root_path, class: "nav-link btn btn-sm in-navigation", active: :exact
+    = active_link_to "Add New Task", new_task_path, class: "nav-link btn btn-sm in-navigation", active: :exact, data: { turbolinks: false }
+  = active_link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link btn btn-sm in-navigation"

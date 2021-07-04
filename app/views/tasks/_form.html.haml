@@ -1,0 +1,15 @@
+= form_for @task  do |f|
+  = render partial: "shared/errors", locals: {object: @task}
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  .form-group
+    = f.label :description
+    = f.text_field :description, class: "form-control"
+  .form-group
+    = f.label :deadline
+    = f.text_field :deadline, class: "form-control datetimepicker", autocomplete: "off"
+  .actions
+    %br
+    = f.submit "Submit", class: "btn btn-primary btn-block"
+    %br

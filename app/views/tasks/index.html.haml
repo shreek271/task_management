@@ -1,0 +1,53 @@
+.container-fluid
+  .row
+    .col-sm-12.bg-white.pt-3.round-border
+      .row
+        .col-sm-8.text-info
+          %p
+            Tasks List
+        .col-sm-4.text-right
+
+  %br
+  .row
+    .col-sm-12.bg-white.pt-3.round-border
+      = form_tag tasks_path, method: :get do
+        .row
+          .col-sm-8
+            %p
+              Total: #{@total_count} task(s)
+              %br
+              %span.badge.badge-pill.badge-light
+                #{@hash["backlog"] || 0} backlog
+              %span.badge.badge-pill.badge-warning
+                #{@hash["inprogress"] || 0} inprogress 
+              %span.badge.badge-pill.badge-success
+                #{@hash["done"] || 0} done
+          .col-sm-2
+            %b Status
+            = select_tag(:status, options_for_select([["All", "All"], ["Backlog", "backlog"], ["Inprogess", "inprogress"], ["done", "done"]], selected: params[:status]), class: "form-control")
+          .col-sm-2
+            %br
+            = submit_tag 'Search', class: "btn btn-primary form-control btn-sm"
+      %br        
+      .row
+        .col-sm-12.col-md-12.col-lg-12
+          .table-responsive.table-sm.table-hover.text-center
+            %table.table.text-center
+              %thead
+                %tr
+                  %th Title
+                  %th Deadline
+                  %th Status
+                  %th Actions
+              %tbody
+                - @tasks.each do |task|
+                  %tr
+                    %td= link_to task.title, task_path(task)
+                    %td= task.human_readable_deadline
+                    %td= task.status.titleize
+                    %td
+                      = render 'actions', task: task
+          %br
+          .digg_pagination
+            = will_paginate @tasks, class: "text-center"
+          %br

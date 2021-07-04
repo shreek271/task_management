@@ -1,0 +1,27 @@
+.container-fluid
+  %br
+  .row
+    .col-sm-12.col-md-12.col-lg-4
+    .col-sm-12.col-md-12.col-lg-4.bg-white
+      .row
+        .col-sm-12
+          %br
+          %h3.text-center.text-primary Change your password
+          %br
+          = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+            = render "devise/shared/error_messages", resource: resource
+            = f.hidden_field :reset_password_token
+            .form-group
+              / = f.label :password, "New password"
+              - if @minimum_password_length
+                %em
+                  (#{@minimum_password_length} characters minimum)
+              = f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control", placeholder: "New Password"
+            .form-group
+              / = f.label :password_confirmation, "Confirm new password"
+              = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm New Password"
+            .form-group.actions
+              %br
+              = f.submit "Change my password", class: "btn btn-primary btn-block round-btn form-control"
+          = render "devise/shared/links"
+    .col-sm-12.col-md-12.col-lg-4
